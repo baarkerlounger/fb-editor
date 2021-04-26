@@ -47,9 +47,7 @@ class EditorApp < SitePrism::Page
   element :add_single_question,
           :xpath,
           "//span[@class='ui-menu-item-wrapper' and contains(.,'Single question page')]"
-  element :add_multiple_question,
-          :xpath,
-          "//a[@class='ui-menu-item-wrapper' and contains(.,'Multiple question page')]"
+  element :add_multiple_question, '[data-page-type=multiplequestions]'
   element :add_check_answers,
           :xpath,
           "//a[@class='ui-menu-item-wrapper' and contains(.,'Check answers page')]"
