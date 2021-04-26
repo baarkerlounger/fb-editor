@@ -110,6 +110,7 @@ class EditorApp < SitePrism::Page
   end
 
   def modal_create_service_button
-    all('.ui-dialog-buttonpane button').first
+    button_text = find('#new-service-create-dialog')['data-activator-text']
+    find_button(button_text)
   end
 end
