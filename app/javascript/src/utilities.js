@@ -202,4 +202,15 @@ function property(context, props) {
 
 
 // Make available for importing.
-export { mergeObjects, createElement, safelyActivateFunction, isFunction, uniqueString, findFragmentIdentifier, meta, post, updateHiddenInputOnForm, property };
+module.exports  = { 
+  mergeObjects: mergeObjects,
+  createElement: createElement,
+  safelyActivateFunction: safelyActivateFunction,
+  isFunction: isFunction,
+  uniqueString: uniqueString,
+  findFragmentIdentifier: findFragmentIdentifier,
+  meta: meta,
+  post: post,
+  updateHiddenInputOnForm: updateHiddenInputOnForm,
+  property: property
+}

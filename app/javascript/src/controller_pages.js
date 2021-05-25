@@ -16,14 +16,19 @@
  **/
 
 
-import { safelyActivateFunction, mergeObjects, uniqueString, findFragmentIdentifier, updateHiddenInputOnForm } from './utilities';
-import { ActivatedMenu } from './component_activated_menu';
-import { Question } from './question';
-import { QuestionMenu } from './component_activated_question_menu';
-import { DialogConfiguration } from './component_dialog_configuration';
-import { editableComponent } from './editable_components';
-import { DefaultController } from './controller_default';
-import { ServicesController } from './controller_services';
+const utilities = require('./utilities');
+const safelyActivateFunction = utilities.safelyActivateFunction;
+const mergeObjects = utilities.mergeObjects;
+const uniqueString = utilities.uniqueString;
+const findFragmentIdentifier = utilities.findFragmentIdentifier;
+const updateHiddenInputOnForm = utilities.updateHiddenInputOnForm;
+const ActivatedMenu = require('./component_activated_menu');
+const Question = require('./question');
+const QuestionMenu = require('./component_activated_question_menu');
+const DialogConfiguration = require('./component_dialog_configuration');
+const editableComponent = require('./editable_components');
+const DefaultController = require('./controller_default');
+const ServicesController = require('./controller_services');
 
 const SELECTOR_COLLECTION_FIELD_LABEL = "legend > :first-child";
 const SELECTOR_COLLECTION_FIELD_HINT = "fieldset > .govuk-hint";
@@ -438,4 +443,4 @@ function editPageMultipleQuestionsViewCustomisations() {
 }
 
 
-export { PagesController }
+module.exports = PagesController;
