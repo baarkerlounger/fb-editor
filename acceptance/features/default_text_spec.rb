@@ -59,6 +59,19 @@ feature 'Default text' do
     end
   end
 
+  scenario 'Upload component default hint text' do
+    given_I_have_a_single_question_page_with_upload
+    when_I_customise_hint
+    when_I_save_my_changes
+    and_I_see_the_custom_hint
+    when_I_remove_the_hint_text
+    when_I_save_my_changes
+    and_I_return_to_flow_page
+    then_I_should_preview_the_page(preview_page) do
+      and_I_see_the_default_upload_default_hint_text
+    end
+  end
+
   def then_I_should_see_default_text
     expect(editor.question_hint.text).to eq('[Optional hint text]')
   end
@@ -89,7 +102,15 @@ feature 'Default text' do
     end
   end
 
+  def when_I_remove_the_hint_text
+    editor.question_hint.set(' ')
+  end
+
   def and_I_see_all_custom_hints
     expect(page.text).to include('This is a radio button')
+  end
+
+  def and_I_see_the_default_upload_hint_text
+    expect(page.text).to include('Maximum file size is 7MB')
   end
 end
