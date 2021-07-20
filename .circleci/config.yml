@@ -386,6 +386,8 @@ workflows:
             branches:
               only:
                 - /testable-.*/
+          context:
+            - moj-forms
       - lint:
           requires:
             - build
@@ -408,6 +410,8 @@ workflows:
             branches:
               only:
                 - /testable-.*/
+          context:
+            - moj-forms
       - build_workers_testable_branch:
           requires:
             - lint
@@ -418,13 +422,19 @@ workflows:
             branches:
               only:
                 - /testable-.*/
+          context:
+            - moj-forms
       - deploy_testable_branch:
           requires:
             - build_web_testable_branch
             - build_workers_testable_branch
+          context:
+            - moj-forms
       - testable_branch_acceptance_tests:
           requires:
             - deploy_testable_branch
+          context:
+            - moj-forms
       - slack/approval-notification:
           message: ":test_tube: :test_tube: :test_tube:\nSuccessfully deployed branch\nVisit: https://${CIRCLE_BRANCH}.apps.live-1.cloud-platform.service.justice.gov.uk\n:test_tube: :test_tube: :test_tube:"
           include_job_number_field: false
