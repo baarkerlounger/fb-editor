@@ -35,6 +35,10 @@
               method: :delete, class: 'destructive delete' %>
             <% end %>
           </li>
+          <li data-action="edit">
+            <%= link_to 'Branching',
+              new_branch_path(service.service_id, page.uuid) %>
+          </li>
         </ul>
 
         <%= link_to edit_page_path(service.service_id, page.uuid), class: 'govuk-link' do %>
